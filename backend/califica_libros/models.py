@@ -32,6 +32,10 @@ class Libro(models.Model):
     calificaciones = models.ManyToManyField(Usuario, through='Calificacion')
 
 
+    def __str__(self):
+        return self.titulo
+
+
 class Calificacion(models.Model):
     libro = models.ForeignKey(Libro, on_delete=models.CASCADE)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
