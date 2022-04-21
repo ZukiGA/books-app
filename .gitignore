@@ -1,3 +1,4 @@
 frontend/node_modules/
 backend/backend/__pycache__
+backend/califica_libros/__pycache__
 venv/

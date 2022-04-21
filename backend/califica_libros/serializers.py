@@ -24,8 +24,8 @@ class CalificacionSerializer(ModelSerializer):
 		fields = ALL_FIELDS
 
 class LibroSerializer(ModelSerializer):
-	# genero = GeneroSerializer()
-	# autores = AutorSerializer(many=True)
+	genero = GeneroSerializer()
+	autores = AutorSerializer(many=True)
 	class Meta:
 		model = Libro
 		fields = ALL_FIELDS

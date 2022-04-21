@@ -1,5 +1,7 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+import axios from "axios";
+
 const autores = ref([
   {
     nombre: "J.R.R",
@@ -12,6 +14,18 @@ const autores = ref([
     fecha_nac: "23/09/1989",
   },
 ]);
+
+onMounted(() => {
+  axios
+    .get("http://localhost:8000/api/autores")
+    .then((res) => {
+      console.log(res.data);
+      autores.value = res.data;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 </script>
 
 <template>
@@ -29,7 +43,7 @@ const autores = ref([
         <tr v-for="(item, i) in autores" :key="i">
           <td>{{ item.nombre }}</td>
           <td>{{ item.apellido }}</td>
-          <td>{{ item.fecha_nac }}</td>
+          <td>{{ item.fecha_nacimiento }}</td>
         </tr>
       </tbody>
     </table>

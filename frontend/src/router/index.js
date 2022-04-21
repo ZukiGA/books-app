@@ -25,6 +25,12 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import("../views/AutoresView.vue"),
     },
+    {
+      path: "/libro/:id",
+      name: "libro",
+      component: () => import("../views/LibroView.vue"),
+      props: true,
+    },
   ],
 });
 
